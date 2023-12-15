@@ -1,0 +1,96 @@
+---
+title: "Predicting Diamond Prices Using Random Forest"
+author: Gamya Sree
+date: 2023-12-14
+image: "randomforestlogo.jpg"
+theme: litera 
+---
+
+
+## Analyzing Diamond Prices with Random Forest
+
+This analysis focuses on using the Random Forest algorithm to predict the price of diamonds based on attributes such as carat, cut, color, and clarity. The diamonds dataset provides a rich source of information for this purpose. Random Forest is suitable for this dataset due to its ability to handle both categorical and continuous variables.
+
+Step 1: Installing and Loading Packages
+
+```{r}
+
+library(ggplot2) 
+library(randomForest)
+library(caTools)
+```
+
+Step 2: Loading the Dataset
+
+```{r}
+
+data("diamonds")
+
+```
+
+Step 3: Preprocessing the Data
+Convert categorical variables to factors.
+```{r}
+diamonds$cut <- as.factor(diamonds$cut)
+diamonds$color <- as.factor(diamonds$color)
+diamonds$clarity <- as.factor(diamonds$clarity)
+```
+
+Step 4: Splitting into Training and Testing Sets
+
+```{r}
+set.seed(123)
+split <- sample.split(diamonds$price, SplitRatio = 0.7)
+train_data <- subset(diamonds, split == TRUE)
+test_data <- subset(diamonds, split == FALSE)
+
+```
+
+Step 5: Apply Random Forest
+
+```{r}
+rf_model <- randomForest(price ~ ., data=train_data, ntree=100)
+
+```
+
+Step 6: Predict and Evaluate the Model
+
+```{r}
+predictions <- predict(rf_model, test_data)
+
+```
+
+Step 7: Variable Importance Plot
+
+```{r}
+varImpPlot(rf_model, main="Variable Importance in Random Forest Model")
+
+```
+
+Step 8: Actual vs Predicted Plot
+
+```{r}
+actual_vs_predicted <- data.frame(Actual = test_data$price, Predicted = predictions)
+ggplot(actual_vs_predicted, aes(x = Actual, y = Predicted)) + 
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
+  ggtitle("Actual vs Predicted Diamond Prices") +
+  xlab("Actual Price") +
+  ylab("Predicted Price")
+
+```
+
+Step 9: Residuals Plot
+
+```{r}
+actual_vs_predicted$Residuals <- actual_vs_predicted$Actual - actual_vs_predicted$Predicted
+ggplot(actual_vs_predicted, aes(x = Predicted, y = Residuals)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  ggtitle("Residuals vs Predicted Prices") +
+  xlab("Predicted Prices") +
+  ylab("Residuals")
+
+
+```
+

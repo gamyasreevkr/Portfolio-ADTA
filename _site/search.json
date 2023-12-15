@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "blogs/index.html",
+    "href": "blogs/index.html",
+    "title": "Predicting Diamond Prices Using Random Forest",
+    "section": "",
+    "text": "This analysis focuses on using the Random Forest algorithm to predict the price of diamonds based on attributes such as carat, cut, color, and clarity. The diamonds dataset provides a rich source of information for this purpose. Random Forest is suitable for this dataset due to its ability to handle both categorical and continuous variables.\nStep 1: Installing and Loading Packages\n\nlibrary(ggplot2) \nlibrary(randomForest)\n\nrandomForest 4.7-1.1\n\n\nType rfNews() to see new features/changes/bug fixes.\n\n\n\nAttaching package: 'randomForest'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    margin\n\nlibrary(caTools)\n\nStep 2: Loading the Dataset\n\ndata(\"diamonds\")\n\nStep 3: Preprocessing the Data Convert categorical variables to factors.\n\ndiamonds$cut &lt;- as.factor(diamonds$cut)\ndiamonds$color &lt;- as.factor(diamonds$color)\ndiamonds$clarity &lt;- as.factor(diamonds$clarity)\n\nStep 4: Splitting into Training and Testing Sets\n\nset.seed(123)\nsplit &lt;- sample.split(diamonds$price, SplitRatio = 0.7)\ntrain_data &lt;- subset(diamonds, split == TRUE)\ntest_data &lt;- subset(diamonds, split == FALSE)\n\nStep 5: Apply Random Forest\n\nrf_model &lt;- randomForest(price ~ ., data=train_data, ntree=100)\n\nStep 6: Predict and Evaluate the Model\n\npredictions &lt;- predict(rf_model, test_data)\n\nStep 7: Variable Importance Plot\n\nvarImpPlot(rf_model, main=\"Variable Importance in Random Forest Model\")\n\n\n\n\nStep 8: Actual vs Predicted Plot\n\nactual_vs_predicted &lt;- data.frame(Actual = test_data$price, Predicted = predictions)\nggplot(actual_vs_predicted, aes(x = Actual, y = Predicted)) + \n  geom_point() +\n  geom_abline(slope = 1, intercept = 0, linetype = \"dashed\", color = \"red\") +\n  ggtitle(\"Actual vs Predicted Diamond Prices\") +\n  xlab(\"Actual Price\") +\n  ylab(\"Predicted Price\")\n\n\n\n\nStep 9: Residuals Plot\n\nactual_vs_predicted$Residuals &lt;- actual_vs_predicted$Actual - actual_vs_predicted$Predicted\nggplot(actual_vs_predicted, aes(x = Predicted, y = Residuals)) +\n  geom_point() +\n  geom_hline(yintercept = 0, linetype = \"dashed\", color = \"red\") +\n  ggtitle(\"Residuals vs Predicted Prices\") +\n  xlab(\"Predicted Prices\") +\n  ylab(\"Residuals\")"
+  },
+  {
+    "objectID": "blogs/index.html#analyzing-diamond-prices-with-random-forest",
+    "href": "blogs/index.html#analyzing-diamond-prices-with-random-forest",
+    "title": "Predicting Diamond Prices Using Random Forest",
+    "section": "",
+    "text": "This analysis focuses on using the Random Forest algorithm to predict the price of diamonds based on attributes such as carat, cut, color, and clarity. The diamonds dataset provides a rich source of information for this purpose. Random Forest is suitable for this dataset due to its ability to handle both categorical and continuous variables.\nStep 1: Installing and Loading Packages\n\nlibrary(ggplot2) \nlibrary(randomForest)\n\nrandomForest 4.7-1.1\n\n\nType rfNews() to see new features/changes/bug fixes.\n\n\n\nAttaching package: 'randomForest'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    margin\n\nlibrary(caTools)\n\nStep 2: Loading the Dataset\n\ndata(\"diamonds\")\n\nStep 3: Preprocessing the Data Convert categorical variables to factors.\n\ndiamonds$cut &lt;- as.factor(diamonds$cut)\ndiamonds$color &lt;- as.factor(diamonds$color)\ndiamonds$clarity &lt;- as.factor(diamonds$clarity)\n\nStep 4: Splitting into Training and Testing Sets\n\nset.seed(123)\nsplit &lt;- sample.split(diamonds$price, SplitRatio = 0.7)\ntrain_data &lt;- subset(diamonds, split == TRUE)\ntest_data &lt;- subset(diamonds, split == FALSE)\n\nStep 5: Apply Random Forest\n\nrf_model &lt;- randomForest(price ~ ., data=train_data, ntree=100)\n\nStep 6: Predict and Evaluate the Model\n\npredictions &lt;- predict(rf_model, test_data)\n\nStep 7: Variable Importance Plot\n\nvarImpPlot(rf_model, main=\"Variable Importance in Random Forest Model\")\n\n\n\n\nStep 8: Actual vs Predicted Plot\n\nactual_vs_predicted &lt;- data.frame(Actual = test_data$price, Predicted = predictions)\nggplot(actual_vs_predicted, aes(x = Actual, y = Predicted)) + \n  geom_point() +\n  geom_abline(slope = 1, intercept = 0, linetype = \"dashed\", color = \"red\") +\n  ggtitle(\"Actual vs Predicted Diamond Prices\") +\n  xlab(\"Actual Price\") +\n  ylab(\"Predicted Price\")\n\n\n\n\nStep 9: Residuals Plot\n\nactual_vs_predicted$Residuals &lt;- actual_vs_predicted$Actual - actual_vs_predicted$Predicted\nggplot(actual_vs_predicted, aes(x = Predicted, y = Residuals)) +\n  geom_point() +\n  geom_hline(yintercept = 0, linetype = \"dashed\", color = \"red\") +\n  ggtitle(\"Residuals vs Predicted Prices\") +\n  xlab(\"Predicted Prices\") +\n  ylab(\"Residuals\")"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Predicting Diamond Prices Using Random Forest\n\n\n\n\n\n\n\n\n\n\n\n\nDec 14, 2023\n\n\nGamya Sree\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Gamya Sree",
+    "section": "",
+    "text": "Gamya sree is currently pursuing her Masters of Science in Advanced Data Analytics at the University of North Texas.\nExperience In Volume/Bulk Hiring with various Talent pool portals and Social Media platforms like RPT, UKG, ADP, Kredily.Well versed with UKG Products like Human Resource, Talent ,Reporting & Analytics, Time & Attendance Management. Familiar and competent in using the ADP HR & Payroll Services from the End - End Employee Recruitment/ Onboarding.\nProficient in MS Excel, PPT, Advanced Excel, Power BI, Tableau & Python.\n \n    \n  \n    \n     Email\n  \n  \n    \n     GitHub\n  \n  \n    \n     Resume"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  }
+]

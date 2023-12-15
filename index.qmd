@@ -1,0 +1,32 @@
+---
+title: "Gamya Sree"
+image: gamya.jpg
+resources: Gamya Resume.pdf
+about: 
+  template: marquee
+  image-shape: round
+  image-width: 14em
+  links:
+  - text: Email
+    icon: envelope
+    href: mailto:gamyasreeravulapalli@my.unt.edu
+  - text: GitHub
+    icon: github
+    href: https://github.com/gamyasreevkr
+  - text: Resume
+    icon: file-text
+    href: Gamya Resume.pdf
+  id: ppc
+---
+
+::: {#ppc}
+Gamya sree is currently pursuing her Masters of Science in Advanced Data Analytics at the University of North Texas.
+
+Experience In Volume/Bulk Hiring with various Talent pool portals and Social Media platforms like RPT, UKG, ADP, Kredily.Well versed with UKG Products like Human Resource, Talent ,Reporting & Analytics, Time & Attendance Management. Familiar and competent in using the ADP HR & Payroll Services from the End - End Employee Recruitment/ Onboarding.
+
+Proficient in MS Excel, PPT,
+Advanced Excel, Power BI, Tableau & Python.
+:::
+
+
+
